@@ -1,7 +1,3 @@
-Sometimes it's useful to send messages from the server to the client, in a way that can't easily be handled with the usual Shiny output bindings.
+Shiny comes with several types of inputs out of the box. You may find time when it would be useful to implement your own input bindings.
 
-`sendCustomMessage()` sends information from the server to the client. It's typically used inside an `observe()` statement. The message is converted from an R data structure to JSON using `RJSONIO::toJSON()`.
-
-On the client side, a message handler function must be registered to receive and do something with the message. Here, the Javascript file (in the www/ directory) which registers the handler gets included in the head of the HTML page. (Make sure to look at the full source code to see the Javascript file.)
-
-In this example, the message handler simply pops up an alert box which displays the content of the message.
+In this example, we've created an input binding for inputs with `type=url` (which requires a modern browser). This input binding is based on Shiny's built-in textInputBinding. URL behave very similary to regular text inputs, so you won't see any new features over and above what a textInputBinding will do. Still, the code demonstrates what's needed for writing your own input bindings.
